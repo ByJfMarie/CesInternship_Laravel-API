@@ -20,8 +20,8 @@ class CreateOffersTable extends Migration
             $table->json('competences');
             $table->float('salary');
             $table->date('date');
-            $table->integer('places')->default(0);
             $table->integer('places_offer');
+            $table->integer('places')->nullable();
             $table->text('details');
             $table->timestamps();
         });

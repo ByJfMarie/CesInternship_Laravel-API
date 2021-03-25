@@ -14,9 +14,7 @@ class OffersController extends Controller
      */
     public function index()
     {
-        $offers = Offers::all();
-
-        return $offers;
+        return Offers::OrderByDesc('created_at')->get();
     }
 
     /**
@@ -27,7 +25,11 @@ class OffersController extends Controller
      */
     public function store(Request $request)
     {
-        Offers::create($request->all());
+        if(Offers::create($request->all())){
+            return response()->json([
+                'success' => 'Offre crée avec succés'
+            ], 200);
+        }
     }
 
     /**
@@ -36,10 +38,10 @@ class OffersController extends Controller
      * @param  \App\Models\Offers  $offers
      * @return \Illuminate\Http\Response
      */
-    public function show(Offers $offers)
+    public function show(Offers $offer)
     {
-        //
-    }
+        return $offer;
+    } 
 
     /**
      * Update the specified resource in storage.
@@ -48,7 +50,7 @@ class OffersController extends Controller
      * @param  \App\Models\Offers  $offers
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Offers $offers)
+    public function update(Request $request, Offers $offer)
     {
         //
     }
@@ -59,8 +61,8 @@ class OffersController extends Controller
      * @param  \App\Models\Offers  $offers
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Offers $offers)
+    public function destroy(Offers $offer)
     {
-        //
+        $offer->delete();
     }
 }
