@@ -20,7 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('Center');
             $table->string('promotion');
+            $table->BigInteger('ID_Role')->unsigned();
+			$table->BigInteger('ID_Nomination')->unsigned()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -23,6 +23,8 @@ class CreateOffersTable extends Migration
             $table->integer('places_offer');
             $table->integer('places')->nullable();
             $table->text('details');
+            $table->BigInteger('ID_Company')->unsigned()->nullable();
+			$table->BigInteger('ID_Nomination')->unsigned()->nullable();
             $table->timestamps();
         });
     }

@@ -52,7 +52,11 @@ class OffersController extends Controller
      */
     public function update(Request $request, Offers $offer)
     {
-        //
+        if($offer->update($request->all())){
+            return response()->json([
+                'success' => 'Offre modifié avec succés'
+            ], 200);
+        }
     }
 
     /**
