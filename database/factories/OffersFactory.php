@@ -21,6 +21,7 @@ class OffersFactory extends Factory
      */
     public function definition()
     {
+        $this->faker->locale('fr_FR');
         return [
             'name' => $this->faker->sentence(5, true),
             'duration' => $this->faker->sentence(3, true),
@@ -29,7 +30,8 @@ class OffersFactory extends Factory
             'date' => $this->faker->date(),
             'places' => $this->faker->randomDigitNotNull(),
             'places_offer' => $this->faker->randomDigitNotNull(),
-            'details' => $this->faker->text(50)
+            'details' => $this->faker->text(50),
+            'ID_Company' => $this->faker->numberBetween(0, 10)
 
 
 

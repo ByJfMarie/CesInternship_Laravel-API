@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Offers;
 use Illuminate\Http\Request;
+use Symfony\Component\Console\Input\Input;
 
 class OffersController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *@param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index(Request $request)
+    {   
         return Offers::OrderByDesc('created_at')->get();
     }
 

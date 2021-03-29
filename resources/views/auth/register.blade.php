@@ -54,6 +54,38 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="center" class="col-md-4 col-form-label text-md-right">{{ __('Center') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="center" type="text" class="form-control @error('center') is-invalid @enderror" name="center" value="{{ old('center') }}" required autocomplete="center" autofocus>
+
+                                @error('center')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="ID_Role" class="col-md-4 col-form-label text-md-right">{{ __('Role') }}</label>
+
+                            <div class="col-md-6">
+                                <select id="ID_Role" class="form-control @error('ID_Role') is-invalid @enderror" name="ID_Role" autofocus>
+                                    <option value="1">Student</option>
+                                    <option value="2">Delagte</option>
+                                    <option value="3">Pilote</option>
+                                    <option value="4">Admin</option>
+                                </select>
+                                @error('ID_Role')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">

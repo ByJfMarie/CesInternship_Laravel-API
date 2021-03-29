@@ -18,11 +18,6 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
-		Schema::table('roles', function(Blueprint $table) {
-			$table->foreign('ID_Account')->references('id')->on('users')
-						->onDelete('restrict')
-						->onUpdate('restrict');
-		});
 		Schema::table('nominations', function(Blueprint $table) {
 			$table->foreign('ID_Notification')->references('id')->on('notifications')
 						->onDelete('restrict')
@@ -87,9 +82,6 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('users', function(Blueprint $table) {
 			$table->dropForeign('User_ID_Nomination_foreign');
-		});
-		Schema::table('roles', function(Blueprint $table) {
-			$table->dropForeign('Role_ID_Account_foreign');
 		});
 		Schema::table('nominations', function(Blueprint $table) {
 			$table->dropForeign('Nomination_ID_Notification_foreign');
