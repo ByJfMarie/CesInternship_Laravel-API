@@ -9,10 +9,6 @@ class Offers extends Model
 {
     use HasFactory;
 
-    public function propose()
-    {
-        return $this->belongsTo('Company');
-    }
 
     protected $fillable = [
         'name',

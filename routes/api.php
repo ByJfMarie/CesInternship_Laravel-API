@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\OffersController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CityController;
+use App\Http\Controllers\OffersController;
+use App\Http\Controllers\CompanyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::apiResource('offers', OffersController::class);
 Route::apiResource('companies', CompanyController::class);
+Route::apiResource('cities', CityController::class);

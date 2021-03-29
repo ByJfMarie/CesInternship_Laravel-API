@@ -27,7 +27,7 @@ class CompanyFactory extends Factory
             'Company_Email' => $this->faker->companyEmail(),
             'Company_Phone' => $this->faker->serviceNumber(),
             'Company_Website' => $this->faker->url(),
-            'ID_City' => $this->faker->numberBetween(0, 30),
+            'ID_City' => $this->faker->numberBetween(1, 30),
         ];
     }
 }

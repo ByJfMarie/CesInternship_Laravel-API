@@ -31,7 +31,7 @@ class OffersFactory extends Factory
             'places' => $this->faker->randomDigitNotNull(),
             'places_offer' => $this->faker->randomDigitNotNull(),
             'details' => $this->faker->text(50),
-            'ID_Company' => $this->faker->numberBetween(0, 10)
+            'ID_Company' => $this->faker->numberBetween(1, 10)
 
 
 
