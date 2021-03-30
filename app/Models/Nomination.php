@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Nomination extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'Step',
+        'ID_Student',
+        'ID_Offer'
+    ];
 }

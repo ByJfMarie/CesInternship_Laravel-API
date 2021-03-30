@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->string('Center');
             $table->string('promotion');
             $table->BigInteger('ID_Role')->unsigned()->default(0);
-			$table->BigInteger('ID_Nomination')->unsigned()->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

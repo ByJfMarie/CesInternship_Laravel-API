@@ -15,7 +15,24 @@ class OffersController extends Controller
      */
     public function index(Request $request)
     {   
-        return Offers::OrderByDesc('created_at')->get();
+        $offer = Offers::latest();
+        if (request('name')) {
+            $offer->where('name', 'like', request('name'));
+        }
+        if (request('duration')) {
+            $offer->where('duration', request('duration'));
+        }
+        if (request('competences')) {
+            $offer->where('competences', 'like', request('competences'));
+        }
+        if (request('salary')) {
+            $offer->where('salary', '>', request('salary'));
+        }
+        if (request('date')) {
+            $offer->whereMonth('date', request('date'));
+        }
+        $offer->OrderByDesc('created_at');
+        return $offer->get();
     }
 
     /**
@@ -68,6 +85,11 @@ class OffersController extends Controller
      */
     public function destroy(Offers $offer)
     {
-        $offer->delete();
+        if ($offer->delete()) {
+            return response()->json([
+                'success' => 'Offre supprimé avec succés'
+            ], 200);
+        }
+        
     }
 }

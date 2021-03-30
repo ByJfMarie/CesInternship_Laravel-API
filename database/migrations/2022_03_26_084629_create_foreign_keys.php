@@ -13,13 +13,13 @@ class CreateForeignKeys extends Migration {
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
-		Schema::table('users', function(Blueprint $table) {
-			$table->foreign('ID_Nomination')->references('id')->on('nominations')
+		Schema::table('nominations', function(Blueprint $table) {
+			$table->foreign('ID_Student')->references('id')->on('users')
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
 		Schema::table('nominations', function(Blueprint $table) {
-			$table->foreign('ID_Notification')->references('id')->on('notifications')
+			$table->foreign('ID_Offer')->references('id')->on('offers')
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});
@@ -35,11 +35,6 @@ class CreateForeignKeys extends Migration {
 		});
 		Schema::table('offers', function(Blueprint $table) {
 			$table->foreign('ID_Company')->references('id')->on('companies')
-						->onDelete('restrict')
-						->onUpdate('restrict');
-		});
-		Schema::table('offers', function(Blueprint $table) {
-			$table->foreign('ID_Nomination')->references('id')->on('nominations')
 						->onDelete('restrict')
 						->onUpdate('restrict');
 		});

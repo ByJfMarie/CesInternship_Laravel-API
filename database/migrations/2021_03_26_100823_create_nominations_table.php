@@ -15,10 +15,9 @@ class CreateNominationsTable extends Migration
     {
         Schema::create('nominations', function (Blueprint $table) {
             $table->id();
-            $table->date('Date');
 			$table->tinyInteger('Step');
-			$table->string('State');
-			$table->BigInteger('ID_Notification')->unsigned();
+			$table->BigInteger('ID_Student')->unsigned();
+            $table->BigInteger('ID_Offer')->unsigned();
             $table->timestamps();
         });
     }
