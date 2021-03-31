@@ -14,7 +14,23 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        return Company::all();
+        $company = Company::latest();
+        if(request('name')) {
+            $company->where('Company_Name', 'like', request('name'));
+        }
+        // if(request('city')) {
+        //     $company->where('Company_Name', 'like', request('name'));
+        // }
+        if(request('sector')) {
+            $company->where('Company_Sector', 'like', request('sector'));
+        }
+        if(request('nbrStudents')) {
+            $company->where('Company_NBStudents', '>', request('nbrStudents'));
+        }
+        if(request('trust')) {
+            $company->where('Company_TutorConfidence', '>', request('trust'));
+        }
+        return $company->get();
     }
 
     /**
