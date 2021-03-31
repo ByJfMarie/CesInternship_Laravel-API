@@ -14,7 +14,7 @@ class CityController extends Controller
      */
     public function index()
     {
-        //
+        return City::all();
     }
 
     /**
@@ -25,7 +25,11 @@ class CityController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(City::create($request->all())){
+            return response()->json([
+                'success' => 'City crée avec succés'
+            ], 200);
+        }
     }
 
     /**
