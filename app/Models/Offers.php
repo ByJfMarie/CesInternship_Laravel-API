@@ -18,6 +18,7 @@ class Offers extends Model
         'date',
         'places_offer',
         'details',
+        'ID_Company'
     ];
 
     protected $casts = [

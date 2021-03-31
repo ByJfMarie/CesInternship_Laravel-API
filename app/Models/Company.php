@@ -13,6 +13,12 @@ class Company extends Model
         'Company_Name',
         'Company_Sector',
         'Company_Email',
-        
+        'Company_Phone',
+        'Company_Website',
+        'Company_NBStudent',
+        'Company_TutorConfidence',
+        'Invisibility',
+        'ID_City',
+
     ];
 }

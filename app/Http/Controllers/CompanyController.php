@@ -41,7 +41,11 @@ class CompanyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if(Company::create($request->all())){
+            return response()->json([
+                'success' => 'Company crée avec succés'
+            ], 200);
+        }
     }
 
     /**
@@ -64,7 +68,11 @@ class CompanyController extends Controller
      */
     public function update(Request $request, Company $company)
     {
-        //
+        if($company->update($request->all())){
+            return response()->json([
+                'success' => 'Company modifié avec succés'
+            ], 200);
+        }
     }
 
     /**
